@@ -8,7 +8,14 @@ const List = () => {
   const { perfectTime, setPerfectTime } = useContext(DataContext);
 
   const handleCalculate = () => {
-    fetch("http://127.0.0.1:5000", {
+    // fetch("http://127.0.0.1:5000", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(steps),
+    // })
+    fetch("http://buraxta.pythonanywhere.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

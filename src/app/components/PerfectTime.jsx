@@ -24,13 +24,8 @@ const PerfectTime = () => {
       exit={{ opacity: 0 }}
       duration={2}
     >
-      <img src="wait.gif" alt="wait" className="" />
-      <motion.h3
-        onClick={() => setShowImage(false)}
-        animate={{ opacity: [0.1, 1, 0.1] }}
-        transition={{ duration: 1, repeat: Infinity }}
-        className="text-left"
-      >
+      <img src="wait.gif" alt="wait" />
+      <motion.h3 onClick={() => setShowImage(false)} className="text-left">
         Calculating the perfect time...
       </motion.h3>
     </motion.div>
