@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Textarea } from "@material-tailwind/react";
 import { Input } from "@material-tailwind/react";
 import { BiTimeFive } from "react-icons/bi";
@@ -10,14 +10,54 @@ import { Typography } from "@material-tailwind/react";
 import { Select } from "@material-tailwind/react";
 import { Option } from "@material-tailwind/react";
 import { Button } from "@material-tailwind/react";
+import DataContext, { DataProvider } from "../DataContext";
 
 const Main = () => {
-  const [text, setText] = useState("");
-  console.log(text);
+  let {
+    id,
+    setId,
+    name,
+    setName,
+    time,
+    setTime,
+    recipe,
+    setRecipe,
+    preq,
+    setPreq,
+    busy,
+    setBusy,
+    addStep,
+    setAddStep,
+    steps,
+    setSteps,
+  } = useContext(DataContext);
+
+  const handleAdd = () => {
+    console.log("name: ", name);
+    console.log("time: ", time);
+    console.log("recipe: ", recipe);
+    console.log("preq: ", preq);
+    console.log("busy: ", busy);
+
+    setSteps((prev) => [
+      ...prev,
+      {
+        id,
+        name,
+        time,
+        recipe,
+        preq,
+        busy,
+      },
+    ]);
+    setId((prev) => prev + 1);
+
+    console.log(steps);
+  };
 
   return (
-    <div className="h-[85vh] mt-2 ">
-      <div className="md:flex w-[70vw] items-center justify-center  mx-auto ">
+    <div className="h-[85vh] mt-3 ">
+      <div className="md:flex w-[70vw] items-center justify-center mx-auto ">
         <Image
           width={450}
           height={1000}
@@ -33,22 +73,30 @@ const Main = () => {
             type="text"
             label="Name of process (should be unique)"
             icon={<MdDriveFileRenameOutline />}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
-          <Input type="number" label="Cook Time" icon={<BiTimeFive />} />
+          <Input
+            type="number"
+            label="Process Time"
+            value={time ? time : null}
+            onChange={(e) => setTime(e.target.value)}
+            min={0}
+          />
           <Textarea
             color="gray"
-            label="Yemek Tarifi"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
+            label="Process Details"
+            value={recipe}
+            onChange={(e) => setRecipe(e.target.value)}
           ></Textarea>
           <div className="w-full">
-            <Select label="Select a prerequisite">
+            {/* <Select label="Select a prerequisite">
               <Option></Option>
-              {/* <Option>Material Tailwind React</Option>
+              <Option>Material Tailwind React</Option>
               <Option>Material Tailwind Vue</Option>
               <Option>Material Tailwind Angular</Option>
-              <Option>Material Tailwind Svelte</Option> */}
-            </Select>
+              <Option>Material Tailwind Svelte</Option>
+            </Select> */}
           </div>
           <Checkbox
             label={
@@ -65,11 +113,13 @@ const Main = () => {
                 </Typography>
               </div>
             }
+            checked={busy}
+            onChange={(e) => setBusy(e.target.checked)}
             containerProps={{
               className: "-mt-5",
             }}
           />
-          <Button color="amber" className="w-full mt-2">
+          <Button color="amber" className="w-full mt-2" onClick={handleAdd}>
             Add to list
           </Button>
         </div>
