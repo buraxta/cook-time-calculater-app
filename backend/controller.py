@@ -76,7 +76,7 @@ def handle_post_request():
 
     else:
         # Return an error response for incorrect data format
-        return jsonify({'error': 'Yanlış veri formatı'})
+        return jsonify({'error': 'Wrong data format'})
 
 
 if __name__ == '__main__':
