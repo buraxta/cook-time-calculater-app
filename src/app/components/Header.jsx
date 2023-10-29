@@ -19,8 +19,8 @@ const Header = () => {
             Wanna be a fast cook?
           </Typography>
           <Typography variant="lead" color="white" className="mb-12 opacity-80">
-            Let's make you a fast cook. You can cook anything you want in a
-            short time.
+            Lets make you a fast cook. You can cook anything you want in a short
+            time.
           </Typography>
         </div>
       </div>

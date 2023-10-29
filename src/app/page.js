@@ -66,7 +66,7 @@ export default function Home() {
             </section>
           ) : (
             <div className=" h-[40vh] flex items-center justify-center flex-col">
-              <h1>The perfect cooking time: {"10 dk"}</h1>
+              <h1>The perfect cooking time: {perfectTime}</h1>
               <Button
                 onClick={handleNewCalculation}
                 variant="contained"

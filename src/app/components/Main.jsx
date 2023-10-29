@@ -109,7 +109,7 @@ const Main = () => {
                   color="gray"
                   className="font-normal"
                 >
-                  Can't do anything apart from this job at the same time
+                  Cant do anything apart from this job at the same time
                 </Typography>
               </div>
             }
