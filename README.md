@@ -1,5 +1,6 @@
 # Cook Time Calculator App
-
+You can watch a short introduction here:
+  
 [![watch the project](http://img.youtube.com/vi/zVIR6dq47Pw/0.jpg)](http://www.youtube.com/watch?v=zVIR6dq47Pw "Project Video")
 
 ## Overview
